@@ -4,4 +4,7 @@ RUN apt-get -y update
 RUN apt-get -y upgrade
 RUN apt -y install mariadb-server mariadb-client
 
-CMD service mysql start  && sleep infinity
+COPY init.sql /var/www/
+RUN service mysql start && mysql -e "echo /var/www/init.sql"
+
+CMD service mysql start  && bash

@@ -16,7 +16,6 @@ services:
     build: ./requirements/wordpress
     depends_on:
       - "mariadb"
-    env_file: .env
     environment:
       WORDPRESS_DB_HOST: db:3306
       WORDPRESS_DB_USER: wordpress
@@ -33,9 +32,11 @@ services:
     container_name: mariadb
     build: ./requirements/mariadb
     env_file: .env
+    environment:
+      WORDPRESS_DB_USER: wordpress
     volumes:
     -  '/data/wordpress:/var/www'
     ports:
-    - "3000:3000"
+    - "3006:3006"
     tty: true
     restart: always

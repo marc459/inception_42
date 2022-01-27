@@ -6,14 +6,12 @@
 #    By: marcos <marcos@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/12 18:12:43 by marcos            #+#    #+#              #
-#    Updated: 2022/01/27 02:22:15 by marcos           ###   ########.fr        #
+#    Updated: 2022/01/27 12:53:42 by marcos           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 all:
-	@sudo docker build -t mariadb_msantos ./srcs/requirements/mariadb/ 
-	@sudo docker build -t wordpress_msantos ./srcs/requirements/wordpress/
-	@sudo docker build -t nginx_msantos ./srcs/requirements/nginx/
+	@sudo docker-compose -f ./srcs/docker-compose.yaml build
 	@sudo docker-compose -f ./srcs/docker-compose.yaml up -d
 
 fclean:
