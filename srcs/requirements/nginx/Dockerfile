@@ -8,6 +8,8 @@ RUN apt-get update
 
 RUN rm -rf /etc/nginx/sites-available/default
 COPY /srcs/default /etc/nginx/sites-available
+#RUN mkdir /var/www/wordpress
+#COPY /srcs/index.html /var/www/wordpress
 
 RUN mkdir /etc/nginx/ssl \
 && chmod 750 /etc/nginx/ssl \

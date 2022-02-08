@@ -6,7 +6,7 @@
 #    By: marcos <marcos@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/12 18:12:43 by marcos            #+#    #+#              #
-#    Updated: 2022/01/27 12:53:42 by marcos           ###   ########.fr        #
+#    Updated: 2022/02/08 16:15:31 by marcos           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,19 +14,43 @@ all:
 	@sudo docker-compose -f ./srcs/docker-compose.yaml build
 	@sudo docker-compose -f ./srcs/docker-compose.yaml up -d
 
-fclean:
-	sudo docker rm -f $$(sudo docker ps -qa) && sudo docker rmi -f $$(sudo docker images -qa)
-#	@docker-compose -f ./srcs/docker-compose.yaml stop
-#	@docker system prune -af
-#	@docker volume rm srcs_db srcs_wordpress -f
-#	@docker volume prune -f
+clean:
+	@sudo docker-compose -f ./srcs/docker-compose.yaml down
+
+fclean: clean
+#@sudo docker volume rm $$(sudo docker volume ls -q) 2> /dev/urandom
+	@sudo docker system prune -af
+info:
+	@echo "\
+   _____               _          _                          \n\
+  / ____|             | |        (_)                         \n\
+ | |      ___   _ __  | |_  __ _  _  _ __    ___  _ __  ___  \n\
+ | |     / _ \ |  _ \ | __|/ _  || ||  _ \  / _ \|  __|/ __| \n\
+ | |____| (_) || | | || |_| (_| || || | | ||  __/| |   \__ \ \n\
+  \_____|\___/ |_| |_| \__|\__,_||_||_| |_| \___||_|   |___/ \n\
+                                                             \n\
+"
+	@sudo docker ps
+	@echo "\
+  _____                                    \n\
+ |_   _|                                   \n\
+   | |   _ __ ___    __ _   __ _   ___  ___ \n\
+   | |  |  _   _ \  / _  | / _  | / _ \/ __| \n\
+  _| |_ | | | | | || (_| || (_| ||  __/\__ \\n\
+ |_____||_| |_| |_| \__,_| \__, | \___||___/\n\
+                            __/ |           \n\
+                           |___/            \n\
+"
+											
+	@sudo docker images
+	
 
 nginx:
-	sudo docker run -it -p 443:443 -p 80:80 "nginx_msantos:latest"
+	sudo docker exec -it nginx bash
 wordpress:
-	sudo docker run -it -p 9000:9000 "wordpress_msantos:latest"
+	sudo docker exec -it wordpress bash
 mariadb:
-	sudo docker run -it -p 3000:3000 "mariadb_msantos:latest"
+	sudo docker exec -it mariadb bash
 
 re: fclean all
 

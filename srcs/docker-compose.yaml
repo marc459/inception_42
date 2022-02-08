@@ -9,6 +9,8 @@ services:
     ports:
       - "443:443"
       - "80:80"
+    volumes:
+    -  './data/wordpress:/var/www/wordpress'
     restart: always
   wordpress:
     image: wordpress_msantos
@@ -22,7 +24,7 @@ services:
       WORDPRESS_DB_PASSWORD: wordpress
       WORDPRESS_DB_NAME: wordpress
     volumes:
-    -  '/data/wordpress:/var/www'
+    -  './data/wordpress:/var/www/wordpress'
     ports:
     - "9000:9000"
     restart: always
@@ -34,8 +36,6 @@ services:
     env_file: .env
     environment:
       WORDPRESS_DB_USER: wordpress
-    volumes:
-    -  '/data/wordpress:/var/www'
     ports:
     - "3006:3006"
     tty: true
