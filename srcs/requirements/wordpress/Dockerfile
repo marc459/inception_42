@@ -9,6 +9,7 @@ COPY ./srcs/www.conf /etc/php/7.3/fpm/pool.d/
 
 COPY /srcs/wordpress* /
 RUN  unzip wordpress-5.7.2-es_ES.zip
+COPY /srcs/wp-config.php /wordpress
 RUN cp -rf wordpress /var/www
 
 RUN apt-get update 

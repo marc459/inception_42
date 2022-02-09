@@ -4,7 +4,13 @@ RUN apt-get -y update
 RUN apt-get -y upgrade
 RUN apt -y install mariadb-server mariadb-client
 
-COPY init.sql /var/www/
-#RUN service mysql start && mysql < /var/www/init.sql
+COPY ./srcs/50-server.cnf /etc/mysql/mariadb.conf.d/
 
-CMD service mysql start ; echo "create database hola;" | mysql -e ; bash
+#COPY init.sql /var/www/
+#RUN service mysql start && mysql < /var/www/init.sql
+CMD service mysql start && mysql -e "create database wordpress;" && \
+ mysql -e "GRANT ALL PRIVILEGES ON wordpress.* TO 'root'@'%';" && \
+ mysql -e "CREATE USER '$MYSQL_USER'@'localhost' IDENTIFIED BY '$MYSQL_PASSWORD';" && \
+ mysql -e "GRANT ALL PRIVILEGES ON wordpress.* TO '$MYSQL_USER'@'%'';" && \
+ mysql -e "UPDATE mysql.user SET Password=PASSWORD('$MYSQL_ROOT_PASSWORD') WHERE User='root';" && \
+ mysql -e "FLUSH PRIVILEGES;" && sleep infinity
