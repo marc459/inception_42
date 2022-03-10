@@ -1,0 +1,11 @@
+HOW its going
+- Volume database
+- domain name
+- nginx tls 1.2
+- persistencia de datos
+
+DOCKER NETWORK
+https://runnable.com/docker/docker-compose-networking
+
+Mandatory
+How docker and docker compose works

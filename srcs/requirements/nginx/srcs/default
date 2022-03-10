@@ -19,6 +19,8 @@ server {
 
 	server_name localhost www.localhost;
 
+	ssl_protocols TLSv1.2;
+
 	location / {
 		try_files $uri $uri/ =404;
 	}

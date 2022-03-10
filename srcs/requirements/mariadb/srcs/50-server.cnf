@@ -105,7 +105,7 @@ character-set-server  = utf8mb4
 collation-server      = utf8mb4_general_ci
 
 #
-# * InnoDB
+# * InB
 #
 # InnoDB is enabled by default with a 10MB datafile in /var/lib/mysql/.
 # Read the manual for more InnoDB related options. There are many!

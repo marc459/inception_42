@@ -12,6 +12,8 @@ services:
     volumes:
     -  './data/wordpress:/var/www/wordpress'
     restart: always
+    networks: 
+      - default
   wordpress:
     image: wordpress_msantos
     container_name: wordpress
@@ -28,6 +30,8 @@ services:
     ports:
     - "9000:9000"
     restart: always
+    networks: 
+      - default
     tty: true
   mariadb:
     image: mariadb_msantos
@@ -39,4 +43,6 @@ services:
     ports:
     - "3006:3006"
     tty: true
+    networks: 
+      - default
     restart: always

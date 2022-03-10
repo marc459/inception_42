@@ -1,3 +1,6 @@
-Inception_42
-This project virtualize several Docker images, creating them in your new personal virtual
-machine.Using Docker-compose:
+## Inception_42 ##
+This project virtualize several Docker images, creating a complete web aplication interconecting Wordpress, nginx,  MariaDB implemented with Docker-compose.
+
+## Usage ##
+
+make

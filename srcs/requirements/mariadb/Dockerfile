@@ -14,4 +14,5 @@ CMD service mysql start && mysql -e "create database wordpress;" && \
  mysql -e "GRANT ALL PRIVILEGES ON wordpress.* TO '$MYSQL_USER'@'%';" && \
  #mysql -e "ALTER USER 'root'@'%' IDENTIFIED BY '$MYSQL_ROOT_PASSWORD';" && \
  mysql -e "UPDATE mysql.user SET Password=PASSWORD('$MYSQL_ROOT_PASSWORD') WHERE User='root';" && \
- mysql -e "FLUSH PRIVILEGES;" && sleep infinity
+ mysql -e "FLUSH PRIVILEGES;" && mysqld
+#CMD mysqld
