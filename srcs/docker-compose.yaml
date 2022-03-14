@@ -10,7 +10,13 @@ services:
       - "443:443"
       - "80:80"
     volumes:
-    -  './data/wordpress:/var/www/wordpress'
+    -  wpdata:/var/www/wordpress
+    # volumes:
+    # -  type: volume
+    #    source: wpdata
+    # -  type: bind
+    #    source: ./srcs/data/wordpress
+    #    target: /var/www/wordpress
     restart: always
     networks: 
       - default
@@ -26,7 +32,11 @@ services:
       WORDPRESS_DB_PASSWORD: wordpress
       WORDPRESS_DB_NAME: wordpress
     volumes:
-    -  './data/wordpress:/var/www/wordpress'
+    -  wpdata:/var/www/wordpress
+    # volumes:
+    # -  type: bind
+    #    source: ./srcs/data/wordpress
+    #    target: /var/www/wordpress
     ports:
     - "9000:9000"
     restart: always
@@ -40,9 +50,24 @@ services:
     env_file: .env
     environment:
       WORDPRESS_DB_USER: wordpress
+    volumes:
+      - mdbdata:/var/lib/mysql
     ports:
     - "3006:3006"
     tty: true
     networks: 
       - default
     restart: always
+volumes:
+  wpdata:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/marcos/Desktop/inception_42/srcs/data/wordpress
+  mdbdata:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/marcos/Desktop/inception_42/srcs/data/mdbdata

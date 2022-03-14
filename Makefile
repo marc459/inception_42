@@ -6,11 +6,13 @@
 #    By: marcos <marcos@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/12 18:12:43 by marcos            #+#    #+#              #
-#    Updated: 2022/02/08 16:15:31 by marcos           ###   ########.fr        #
+#    Updated: 2022/03/14 13:00:12 by marcos           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 all:
+	@mkdir -p /home/marcos/Desktop/inception_42/srcs/data/wordpress
+	@mkdir -p /home/marcos/Desktop/inception_42/srcs/data/mdbdata
 	@sudo docker-compose -f ./srcs/docker-compose.yaml build
 	@sudo docker-compose -f ./srcs/docker-compose.yaml up -d
 
@@ -19,6 +21,8 @@ clean:
 
 fclean: clean
 #@sudo docker volume rm $$(sudo docker volume ls -q) 2> /dev/urandom
+	@sudo docker volume rm srcs_mdbdata
+	@sudo docker volume rm srcs_wpdata
 	@sudo docker system prune -af
 info:
 	@echo "\
@@ -51,6 +55,8 @@ wordpress:
 	sudo docker exec -it wordpress bash
 mariadb:
 	sudo docker exec -it mariadb bash
+volumes:
+	sudo docker volume ls
 
 re: fclean all
 
