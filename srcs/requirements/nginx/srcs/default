@@ -1,6 +1,6 @@
 server {
-	listen 80;
-	listen [::]:80;
+	listen 80 default_server;
+	listen [::]:80 default_server;
 
 	server_name msantos-.42.fr www.msantos-.42.fr;
 	return 301 https://$server_name$request_uri;
@@ -21,9 +21,6 @@ server {
 
 	ssl_protocols TLSv1.2;
 
-	location / {
-		try_files $uri $uri/ =404;
-	}
 	location ~ [^/]\.php(/|$) { 
 		fastcgi_split_path_info ^(.+?\.php)(/.*)$;
 		if (!-f $document_root$fastcgi_script_name) {

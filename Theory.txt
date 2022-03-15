@@ -1,8 +1,8 @@
 HOW its going
-- Volume database
+- Volume database ok
 - domain name
-- nginx tls 1.2
-- persistencia de datos
+- nginx tls 1.2 ok
+- persistencia de datos ok
 
 DOCKER NETWORK
 https://runnable.com/docker/docker-compose-networking

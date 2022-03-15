@@ -6,7 +6,7 @@
 #    By: marcos <marcos@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/12 18:12:43 by marcos            #+#    #+#              #
-#    Updated: 2022/03/14 13:00:12 by marcos           ###   ########.fr        #
+#    Updated: 2022/03/15 14:26:56 by marcos           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,9 +20,10 @@ clean:
 	@sudo docker-compose -f ./srcs/docker-compose.yaml down
 
 fclean: clean
-#@sudo docker volume rm $$(sudo docker volume ls -q) 2> /dev/urandom
+	@sudo rm -rf ./srcs/data/*
 	@sudo docker volume rm srcs_mdbdata
 	@sudo docker volume rm srcs_wpdata
+	
 	@sudo docker system prune -af
 info:
 	@echo "\
