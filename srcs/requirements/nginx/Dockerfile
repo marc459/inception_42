@@ -18,5 +18,5 @@ RUN mkdir /etc/nginx/ssl \
 RUN apt-get update
 
 #Iniciar servicios
-CMD  nginx -g 'daemon off;' && curl -k -L -s --data "weblog_title=INCEPTION&user_name=admin&admin_password=admin&admin_password2=admin&admin_email=MSANTOS-@student.42.fr&pw_weak=on" https://msantos.42.fr/wp-admin/install.php?step=2
+CMD  nginx -g 'daemon off;'
 #&& sleep infinity
