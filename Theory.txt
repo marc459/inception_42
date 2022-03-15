@@ -1,6 +1,6 @@
 HOW its going
 - Volume database ok
-- domain name
+- domain name ok
 - nginx tls 1.2 ok
 - persistencia de datos ok
 

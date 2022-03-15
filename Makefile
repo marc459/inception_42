@@ -6,11 +6,12 @@
 #    By: marcos <marcos@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/12 18:12:43 by marcos            #+#    #+#              #
-#    Updated: 2022/03/15 14:26:56 by marcos           ###   ########.fr        #
+#    Updated: 2022/03/15 19:27:04 by marcos           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 all:
+#	@sudo echo "127.0.0.1       msantos.42.fr" >> /etc/hosts
 	@mkdir -p /home/marcos/Desktop/inception_42/srcs/data/wordpress
 	@mkdir -p /home/marcos/Desktop/inception_42/srcs/data/mdbdata
 	@sudo docker-compose -f ./srcs/docker-compose.yaml build
