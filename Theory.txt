@@ -8,4 +8,13 @@ DOCKER NETWORK
 https://runnable.com/docker/docker-compose-networking
 
 Mandatory
-How docker and docker compose works
+-- How docker and docker-compose works? --
+Docker es una plataforma de código abierto que hace uso de las funciones de aislamiento
+ de recursos del kernel de Linux para poder dar lugar a contenedores independientes
+Docker-compose es una herramienta que permite
+automatizar la construccion y el despliegue de contenedores docker
+
+-- The difference between a Docker image used with docker-compose and
+without docker-compose--
+Generar una contendor con docker compose es mucho mas simple , ya que escrbibir las sentencias
+en un archivo reglado, permite generarlos de forma mas atuomatizada.
