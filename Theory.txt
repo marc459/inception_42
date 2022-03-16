@@ -35,10 +35,6 @@ Docker networking is primarily used to establish communication between Docker co
  and the outside world via the host machine where the Docker daemon is running.
 
 #CHECK
-- Ensure that docker-network is used by checking the docker-compose.yaml
-ﬁle. Then run the "docker network ls" command to verify that a
-network is visible
-
 - The use of a TLS v1.2/v1.3 certiﬁcate is mandatory and must be
 demonstrated.
 curl -I -v --tlsv1.2 --tls-max 1.2 https://msantos-.42.fr
