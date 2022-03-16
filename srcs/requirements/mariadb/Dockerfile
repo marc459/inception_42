@@ -17,6 +17,5 @@ RUN service mysql start && sleep 3 && mysql -e "CREATE DATABASE IF NOT EXISTS wo
  mysql -e "GRANT ALL PRIVILEGES ON wordpress.* TO '$MYSQL_USER'@'%';" && \
  #mysql -e "ALTER USER 'root'@'%' IDENTIFIED BY '$MYSQL_ROOT_PASSWORD';" && \
  mysql -e "UPDATE mysql.user SET Password=PASSWORD('$MYSQL_ROOT_PASSWORD') WHERE User='root';" && \
- mysql -e "FLUSH PRIVILEGES;" && service mysql stop
- CMD mysqld
+ mysql -e "FLUSH PRIVILEGES;" && mysqld
  #mysql -u root --password='admin' 'wordpress' < /srcs/wordpress.sql
