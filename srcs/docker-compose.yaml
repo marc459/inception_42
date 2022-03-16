@@ -64,10 +64,10 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /home/marcos/Desktop/inception_42/srcs/data/wordpress
+      device: /home/msantos-/data/wordpress
   mdbdata:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /home/marcos/Desktop/inception_42/srcs/data/mdbdata
+      device: /home/msantos-/data/mdbdata

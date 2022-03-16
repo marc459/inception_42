@@ -6,23 +6,23 @@
 #    By: marcos <marcos@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/12 18:12:43 by marcos            #+#    #+#              #
-#    Updated: 2022/03/15 20:13:02 by marcos           ###   ########.fr        #
+#    Updated: 2022/03/16 18:03:31 by marcos           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 all:
 #	@sudo echo "127.0.0.1       msantos.42.fr" >> /etc/hosts
-	@mkdir -p /home/marcos/Desktop/inception_42/srcs/data/wordpress
-	@mkdir -p /home/marcos/Desktop/inception_42/srcs/data/mdbdata
+	@sudo mkdir -p /home/msantos-/data/wordpress
+	@sudo mkdir -p /home/msantos-/data/mdbdata
 	@sudo docker-compose -f ./srcs/docker-compose.yaml build
 	@sudo docker-compose -f ./srcs/docker-compose.yaml up -d
-	@curl -k -L -s --data "weblog_title=INCEPTION&user_name=admin&admin_password=admin&admin_password2=admin&admin_email=MSANTOS-@student.42.fr&pw_weak=on" https://msantos.42.fr/wp-admin/install.php?step=2
+	@curl -k -L -s --data "weblog_title=INCEPTION&user_name=msantos&admin_password=msantospass&admin_password2=msantospass&admin_email=msantos-@student.42.fr&pw_weak=on" https://msantos-.42.fr/wp-admin/install.php?step=2
 
 clean:
 	@sudo docker-compose -f ./srcs/docker-compose.yaml down
 
 fclean: clean
-	@sudo rm -rf ./srcs/data/*
+	@sudo rm -rf /home/msantos-/data/*
 	@sudo docker volume rm srcs_mdbdata
 	@sudo docker volume rm srcs_wpdata
 	
@@ -50,6 +50,9 @@ info:
 "
 											
 	@sudo docker images
+	@echo "\n\nDOCKER NETORK\n"
+	
+	@docker network ls
 	
 
 nginx:
