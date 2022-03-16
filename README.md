@@ -4,3 +4,7 @@ This project virtualize several Docker images, creating a complete web aplicatio
 ## Usage ##
 
 make
+
+
+## Dependencys ##
+make,git,docker,docker-compose,curl
