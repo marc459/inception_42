@@ -38,18 +38,13 @@ Docker networking is primarily used to establish communication between Docker co
 - Ensure that docker-network is used by checking the docker-compose.yaml
 ﬁle. Then run the "docker network ls" command to verify that a
 network is visible
+
 - The use of a TLS v1.2/v1.3 certiﬁcate is mandatory and must be
 demonstrated.
 curl -I -v --tlsv1.2 --tls-max 1.2 https://msantos-.42.fr
 
--Run the command "docker volume ls" then "docker volume inspect
-". Verify that the result in the standard output contains
-the path "/home/login/data/", where login is the login of the evaluated
-
 - Ensure that you can add a comment using the available WordPress user.
 
-- From the Administration dashboard, edit a page. Verify on the website
-that the page has been updated.
 -This part is pretty straightforward. You have to reboot the virtual
 machine. Once it has restarted, launch docker-compose again. Then,
 verify that everything is functional, and that both WordPress and
