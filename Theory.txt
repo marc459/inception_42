@@ -44,6 +44,7 @@ network is visible
 cannot connect
 - The use of a TLS v1.2/v1.3 certiﬁcate is mandatory and must be
 demonstrated.
+curl -I -v --tlsv1.2 --tls-max 1.2 https://msantos-.42.fr
 -Run the command "docker volume ls" then "docker volume inspect
 ". Verify that the result in the standard output contains
 the path "/home/login/data/", where login is the login of the evaluated
