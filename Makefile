@@ -6,7 +6,7 @@
 #    By: marcos <marcos@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/12 18:12:43 by marcos            #+#    #+#              #
-#    Updated: 2022/03/16 18:03:31 by marcos           ###   ########.fr        #
+#    Updated: 2022/03/17 13:00:57 by marcos           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ all:
 	@sudo mkdir -p /home/msantos-/data/mdbdata
 	@sudo docker-compose -f ./srcs/docker-compose.yaml build
 	@sudo docker-compose -f ./srcs/docker-compose.yaml up -d
+	@sleep 2
 	@curl -k -L -s --data "weblog_title=INCEPTION&user_name=msantos&admin_password=msantospass&admin_password2=msantospass&admin_email=msantos-@student.42.fr&pw_weak=on" https://msantos-.42.fr/wp-admin/install.php?step=2
 
 clean:
