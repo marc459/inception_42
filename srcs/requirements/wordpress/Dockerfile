@@ -26,6 +26,10 @@ apt -y install php7.3-fpm \
     unzip
 COPY ./srcs/www.conf /etc/php/7.3/fpm/pool.d/
 
+RUN	wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+RUN	chmod +x wp-cli.phar
+RUN	mv wp-cli.phar /usr/local/bin/wp
+
 COPY /srcs/wordpress* /
 RUN  unzip wordpress-5.7.2-es_ES.zip
 COPY /srcs/wp-config.php /wordpress
@@ -39,4 +43,8 @@ RUN cp -rf wordpress /var/www
 #Iniciar servicios
 #CMD /etc/init.d/php7.3-fpm start  && cp -rf wordpress /var/www && sleep infinity
 #CMD cp -rf wordpress /var/www && sleep infinity
-CMD service  php7.3-fpm start && service  php7.3-fpm stop && php-fpm7.3 --nodaemonize
+# CMD service  php7.3-fpm start && service php7.3-fpm stop && php-fpm7.3 --nodaemonize
+COPY srcs/setup.sh . 
+RUN chmod +x setup.sh
+
+ENTRYPOINT ["sh", "/setup.sh"]

@@ -31,6 +31,12 @@ services:
       WORDPRESS_DB_USER: wordpress
       WORDPRESS_DB_PASSWORD: wordpress
       WORDPRESS_DB_NAME: wordpress
+      WP_LOGIN: msantos
+      WP_PASS: msantospass
+      WPU_1LOGIN: msantos2
+      WPU_1PASS: msantospass2
+      MARIA_LOGIN: msantos
+      MARIA_PASS: msantospass
     volumes:
     -  wpdata:/var/www/wordpress
     # volumes:
