@@ -39,10 +39,6 @@ services:
       MARIA_PASS: msantospass
     volumes:
     -  wpdata:/var/www/wordpress
-    # volumes:
-    # -  type: bind
-    #    source: ./srcs/data/wordpress
-    #    target: /var/www/wordpress
     ports:
     - "9000:9000"
     restart: always
