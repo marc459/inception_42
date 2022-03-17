@@ -3,6 +3,8 @@ This project virtualize several Docker images, creating a complete web aplicatio
 
 ## Usage ##
 
+add "127.0.0.1 msantos-.42.fr" to /etc/hosts
+
 make
 
 ## Credentials ##
@@ -13,7 +15,7 @@ MYSQL_USER=msantos
 MYSQL_PASSWORD=msantospass
 
 WP_USER=msantospass
-EP_PASSWORD=msantospass
+WP_PASSWORD=msantospass
 
 
 ## Dependencys ##
